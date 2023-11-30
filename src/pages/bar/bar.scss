@@ -1,0 +1,19 @@
+.fei-bar {
+  position: relative;
+  width: 2244px;
+  margin: 0;
+  background-position: 0 0;
+  background-size: contain;
+  // transition: all 10s ease-in-out;
+  transition: backgroundPosition 1s ease-in-out;
+
+  &--slide {
+    margin: 0 0 0 -1300px;
+  }
+
+  &__player {
+    position: absolute;
+    top: 290px;
+    right: 320px;
+  }
+}

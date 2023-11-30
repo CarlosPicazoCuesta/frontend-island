@@ -1,0 +1,25 @@
+.fei-player {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+  height: 275px;
+  background-image: url("../../assets/images/chars/basemale.png");
+  background-size: contain;
+
+  &--male {
+    .fei-thumbnail {
+      position: absolute;
+      top: 0;
+      left: 12px;
+    }
+  }
+
+  &--female {
+    background-image: url("../../assets/images/chars/basefemale.png");
+    .fei-thumbnail {
+      position: absolute;
+      top: 0;
+      left: 12px;
+    }
+  }
+}

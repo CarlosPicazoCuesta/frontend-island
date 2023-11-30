@@ -1,0 +1,11 @@
+.fei-bubble {
+  position: absolute;
+  font-family: "Commodore";
+  font-size: 20px;
+  opacity: 0;
+  transition: opacity 0.1s linear;
+
+  &--active {
+    opacity: 1;
+  }
+}

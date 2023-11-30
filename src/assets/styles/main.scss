@@ -1,0 +1,53 @@
+@use "../fonts/fonts.scss";
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "commodore";
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+.fei-bg {
+  min-width: 800px;
+  min-height: 600px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.fei-italic {
+  font-style: italic;
+}
+
+.fei-uppercase {
+  text-transform: uppercase;
+}
+
+.fei-green {
+  color: rgb(11, 247, 11) !important;
+}
+
+.fei-consolas {
+  font-family: "Consolas";
+  letter-spacing: 1.5px;
+}
+
+.fei-28 {
+  font-size: 28px;
+}
+
+.fei-interact {
+  filter: brightness(0.7);
+
+  &--active {
+    &:hover {
+      filter: brightness(1);
+    }
+  }
+}
