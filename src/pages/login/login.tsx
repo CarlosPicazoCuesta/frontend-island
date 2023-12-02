@@ -4,7 +4,7 @@ import { useCookies } from "react-cookie";
 import classnames from 'classnames';
 import { checkPass, handlePasswordChange } from '../../utils/core';
 import { sleep } from '../../utils/commons.js';
-import { useRootContext, nextPage } from '../../utils/context/context.js';
+import { useRootContext, nextPage } from '../../utils/context/context.ts';
 import Page from '../page/page';
 import login from '../../assets/sounds/login.mp3';
 import "./login.scss";
@@ -79,7 +79,6 @@ const LoginPage = () => {
     setCookie("PWD", hash, { path: "/" });
     setSong(login);
     setFadeOut(true);
-    // sleep(2400).then(() => navigate(nextPage.login));
     navigate(nextPage.login);
   }
 

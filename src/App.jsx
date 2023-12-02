@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { RouterProvider } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import classNames from "classnames";
-import { RootContext, RootContextInitial } from "./utils/context/context.js";
+import { RootContext, RootContextInitial } from "./utils/context/context.ts";
 import "./assets/styles/main.scss";
 import getRouter from "./utils/router/router.jsx";
 

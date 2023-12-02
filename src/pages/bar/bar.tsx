@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useRootContext } from "../../utils/context/context.js";
+import { useRootContext, nextPage } from "../../utils/context/context.ts";
 import Page from "../page/page.jsx";
 import FadeIn from "../../components/fade-in/fade-in.jsx";
 import Player from "../../components/player/player.tsx";
 import bg1 from "../../assets/images/bgs/barfinal-ai-isi.jpg";
-// import bg2 from "../../assets/images/bgs/bar2-short.png";
-// import bg3 from "../../assets/images/bgs/bar2-short.png";
+import bg2 from "../../assets/images/bgs/barfinal-ai-lilen.jpg";
+import bg3 from "../../assets/images/bgs/barfinal-so-isi.jpg";
 import bar from "../../assets/sounds/bar.mp3";
 import "./bar.scss";
 import classNames from "classnames";
@@ -14,51 +14,80 @@ import { NPCS } from "../../utils/commons.js";
 import BubbleSet from "../../components/bubble/bubble-set.tsx";
 
 const Bar = () => {
+  const { setSong, player, setFadeOut } = useRootContext();
   const [activeSecuence, setActiveSecuence] = useState(false);
-  const { setSong, player } = useRootContext();
+  const [secuenceStage, setSecuenceStage] = useState(0);
   const navigate = useNavigate();
-  // const secuences = [
-  //   "La suerte y todos los demás se fueron.",
-  //   "¿Qué hago ahora?",
-  //   "Seguro que en este antro hay una agradable tripulación a la que unirse...",
-  // ];
+  const bg = player.id === "isi" ? bg2 : player.id === "aitor" ? bg3 : bg1;
 
-  // const showCrew = () => {
-  //   setCartelEnabled(true);
-  // }
+  const secuenceBubbles = [
+    {
+      delay: 12000,
+      duration: [2400, 3000, 2600, 4500, 2200, 2500, 2000],
+      endDelay: 2000,
+      color: NPCS.capi.color,
+      width: "475px",
+      position: { top: 275, left: 1300 }
+    },
+    {
+      delay: 0,
+      duration: [1600],
+      endDelay: 200,
+      color: player.color,
+      width: "400px",
+      position: { top: 230, left: 1300 + 370 }
+    },
+    {
+      delay: 0,
+      duration: [1200, 3000],
+      endDelay: 2000,
+      color: NPCS.capi.color,
+      width: "475px",
+      position: { top: 275, left: 1300 }
+    }
+  ]
 
-  const secuenceDone = () => {
-    navigate("/bar");
+  const secuenceTexts = player.gender === "male" ? [[
+    `¡Hey! ¡¡${player.name?.toUpperCase()}!!`,
+    "¿Viste el cartel de la puerta?",
+    "!Te estabamos esperando!",
+    "Vamos a emprender un viaje hacia lo desconocido.",
+    "Viviremos mil peligros y...",
+    "probablemente moriremos.",
+    "¿Te apuntas?"
+  ], ["Estooo, ¿no?"], ["Bienvenidooo!!",
+    "Zarparemos antes de que salga el sol...",
+  ]
+  ] : [[
+    `¡Hey! ¡¡${player.name?.toUpperCase()}!!`,
+    "¿Viste el cartel de la puerta?",
+    "!Te estabamos esperando!",
+    "Vamos a emprender un viaje hacia lo desconocido.",
+    "Viviremos mil peligros y...",
+    "probablemente moriremos.",
+    "¿Te apuntas?"
+  ],
+  ["Estooo, ¿no?"],
+  ["Bienvenidaaa!!",
+    "Zarparemos antes de que salga el sol...",
+  ]];
+
+  async function secuenceDone() {
+    setFadeOut();
+    // navigate(nextPage.introIsland);
   }
 
-  // const Secuence = () => {
-  //   console.log(player.name);
-  //   const bubbleProps = {
-  //     delay: 11000,
-  //     duration: 2500,
-  //     endDelay: 2000,
-  //     color: NPCS.capi.color,
-  //     maxWidth: "600px",
-  //     position: { top: 200, left: 1300 + 120 }
-  //   }
-  //   const setCapi = player.gender === 'male' ?
-  //     [
-  //       `¡Eh, tú! `,
-  //       `¡¡ ${player.name?.toUpperCase()} !!`,
-  //       "Te estabamos buscando.",
-  //       "Te necesitamos en nuestra tripulación.",
-  //       "Zarpamos al amanecer.",
-  //       "¿Te apuntas?"
-  //     ] : [
-  //       `¡Eh, tú! `,
-  //       `¡¡ ${player.name?.toUpperCase()} !!`,
-  //       "Te estabamos buscando.",
-  //       "Te necesitamos en nuestra tripulación.",
-  //       "Zarpamos al amanecer.",
-  //       "¿Te apuntas?"
-  //     ]
-  //   return <BubbleSet bubbleProps={bubbleProps} set={setCapi} callback={secuenceDone} />;
-  // }
+  const secuenceCallback = () => {
+    if (secuenceStage < secuenceBubbles.length - 1) {
+      setSecuenceStage(secuenceStage + 1);
+    } else {
+      secuenceDone();
+    }
+  }
+
+  const Secuence = () => {
+    return <BubbleSet bubbleProps={secuenceBubbles[secuenceStage]} set={secuenceTexts[secuenceStage]} callback={secuenceCallback} />;
+  }
 
 
   useEffect(() => {
@@ -73,9 +102,9 @@ const Bar = () => {
         }}
         delayStart={500}
       >
-        <main className={classNames("fei-bg fei-bar", { "fei-bar--slide": activeSecuence })} style={{ backgroundImage: `url(${bg1})` }}>
+        <main className={classNames("fei-bg fei-bar", { "fei-bar--slide": activeSecuence })} style={{ backgroundImage: `url(${bg})` }}>
           <Player className="fei-bar__player" />
-          {/* <Secuence /> */}
+          <Secuence />
         </main>
       </FadeIn>
     </Page>

@@ -1,11 +1,10 @@
 import React from 'react';
-import { useRootContext } from '../../utils/context/context';
+import { useRootContext } from '../../utils/context/context.ts';
 import classNames from 'classnames';
 import Thumbnail from '../thumbnail/thumbnail.tsx';
 import './player.scss';
 
 const Player = ({ className = "" }) => {
-  console.log("player");
   const { player } = useRootContext();
 
   return (

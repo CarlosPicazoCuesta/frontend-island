@@ -1,21 +1,31 @@
 import { createContext, useContext } from "react";
 // import { getCharsArr } from "../commons.js";
 
+type RootContextType = {
+  currentPage: string;
+  activeSong: string;
+  play: boolean;
+  player: any;
+  setPlayer: (string) => void | null;
+};
+
 export const RootContextInitial = {
   currentPage: "",
   activeSong: "",
   play: true,
   player: null,
+  setPlayer: null,
 };
 
 export const RootContext = createContext({});
 
-export const useRootContext = () => {
+export const useRootContext = (): RootContextType => {
   const context = useContext(RootContext);
   return context;
 };
 
 export const nextPage = {
+  default: "/login",
   login: "/intro",
   intro: "/intro-island",
   introIsland: "/dock",

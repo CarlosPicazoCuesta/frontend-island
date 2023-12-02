@@ -5,35 +5,35 @@ import './bubble.scss';
 export type BubbleProps = {
   className?: string;
   delay?: number;
-  duration?: number;
+  duration: number[];
   endDelay?: number;
   callback?: () => void;
   color?: string;
-  maxWidth?: string;
+  width?: string;
   position?: { top: number, left: number };
   children?: React.ReactNode;
 }
 
-const Bubble: FC<BubbleProps> = ({ className = "", children, duration = 1000, delay = 0, endDelay = 200, callback = () => { }, color = '#fff', maxWidth = "80vh", position = { top: 0, left: 0 } }) => {
+const Bubble: FC<BubbleProps> = ({ className = "", children, duration = [1000], delay = 0, endDelay = 200, callback = () => { }, color = '#fff', width = "80vh", position = { top: 0, left: 0 } }) => {
   const [active, setActive] = useState(false);
 
   async function showBubble() {
     await sleep(delay);
     setActive(true);
-    await sleep(duration);
+    await sleep(duration[0]);
     setActive(false);
     await sleep(endDelay);
-    callback?.();
+    callback();
   }
 
   useEffect(() => {
     showBubble();
-  }, []);
+  }, [children]);
 
   return (
     <div className={`fei-bubble ${className} ${active ? 'fei-bubble--active' : ''}`} style={{
       color: color,
-      maxWidth: maxWidth,
+      width: width,
       top: `${position.top}px`,
       left: `${position.left}px`
     }} >

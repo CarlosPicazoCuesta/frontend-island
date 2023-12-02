@@ -40,7 +40,7 @@
     overflow: hidden;
   }
 
-  &__page-id {
+  &__id {
     color: #09ff78;
     position: fixed;
     top: 24px;
@@ -85,6 +85,31 @@
     &:hover {
       color: white;
       border-color: white;
+    }
+  }
+
+  &__nav {
+    position: fixed;
+    top: 48px;
+    right: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 24px 0 0 0;
+    margin: 0;
+    font-size: 20px;
+    color: #1909ff;
+
+    &-link {
+      display: block;
+      margin: 0;
+      transition: all 0.3s ease-in-out;
+      font-size: 20px;
+      text-align: right;
+
+      &:hover {
+        color: white;
+      }
     }
   }
 }

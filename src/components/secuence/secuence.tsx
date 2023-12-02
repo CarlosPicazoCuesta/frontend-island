@@ -21,7 +21,7 @@ const Secuence: FC<SecuenceProps> = ({ slides, className, callback, itemsConfig 
   const [isOff, setIsOff] = useState(true);
   const [currentText, setCurrentText] = useState(slides[0]);
 
-  const noDelay = 0;
+  const noDelay = 1;
 
   const initAwait = 2000 * noDelay;
   const beforeTransition = 1200 * noDelay;

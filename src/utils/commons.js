@@ -2,7 +2,7 @@ import aitor1 from "../assets/images/chars/aitor1.png";
 import jose1 from "../assets/images/chars/jose1.png";
 import isaac1 from "../assets/images/chars/isaac1.png";
 import somo1 from "../assets/images/chars/somo1.png";
-import isi1 from "../assets/images/chars/isi1.png";
+import isi1 from "../assets/images/chars/isi3.png";
 import marc1 from "../assets/images/chars/marc1.png";
 import dorian1 from "../assets/images/chars/dorian1.png";
 import lilen1 from "../assets/images/chars/lilen1.png";

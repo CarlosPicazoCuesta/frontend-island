@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useRootContext } from "../../utils/context/context.js";
+import { useRootContext } from "../../utils/context/context.ts";
 import Page from "../page/page.jsx";
 import FadeIn from "../../components/fade-in/fade-in.jsx";
 import Secuence from "../../components/secuence/secuence.tsx";

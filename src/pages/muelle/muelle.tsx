@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useRootContext } from "../../utils/context/context.js";
+import { useRootContext } from "../../utils/context/context.ts";
 import Page from "../page/page.jsx";
 import FadeIn from "../../components/fade-in/fade-in.jsx";
 import Secuence from "../../components/secuence/secuence.tsx";
@@ -16,10 +16,10 @@ const Muelle = () => {
   const [cartelEnabled, setCartelEnabled] = useState(false);
   const { setSong } = useRootContext();
   const secuences = [
-    // "La suerte y todos los demás se fueron.",
-    // "¿Qué hago ahora?",
-    // "Seguro que en este antro hay una agradable tripulación a la que unirse...",
-    "."
+    "La suerte y todos los demás se fueron.",
+    "¿Qué hago ahora?",
+    "Seguro que en este antro hay una agradable tripulación a la que unirse...",
+    // "."
   ];
 
   const showCrew = () => {

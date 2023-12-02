@@ -8,10 +8,10 @@ const FadeIn = ({ callback = () => {}, delayStart = 800, delayEnd = 400, childre
   const [isFadeInActive, setIsFadeInActive] = useState(false);
 
   async function effect() {
-    // await sleep(delayStart);
+    await sleep(delayStart);
     setIsFadeInActive(true);
-    // await sleep(effectDuration);
-    // await sleep(delayEnd);
+    await sleep(effectDuration);
+    await sleep(delayEnd);
     callback();
   }
 

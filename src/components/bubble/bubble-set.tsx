@@ -1,14 +1,15 @@
 import React, { FC, useState, useEffect } from 'react';
 import Bubble, { BubbleProps } from './bubble.tsx';
-import { sleep } from '../../utils/commons';
+// import { sleep } from '../../utils/commons';
 
 type BubbleSetProps = {
   set: string[];
   bubbleProps: BubbleProps;
   callback?: () => void;
+  show?: boolean;
 }
 
-const BubbleSet: FC<BubbleSetProps> = ({ set, bubbleProps, callback = () => { } }) => {
+const BubbleSet: FC<BubbleSetProps> = ({ set, bubbleProps, callback = () => { }, show = true }) => {
   const [index, setIndex] = useState(0);
 
   function bubbleLoop() {
@@ -19,29 +20,33 @@ const BubbleSet: FC<BubbleSetProps> = ({ set, bubbleProps, callback = () => { } 
     }
   }
 
-  async function showBubble() {
-    await sleep(bubbleProps.delay);
-  }
+  // async function showBubble() {
+  //   await sleep(bubbleProps.delay);
+  //   bubbleLoop();
+  // }
 
-  useEffect(() => {
-    showBubble();
-    window.addEventListener('keyDown', (e) => {
-      console.log(e.key);
-      if (e.key === 'Enter') {
-        bubbleLoop();
-      }
-    });
-  }, []);
+  // const keyDownEvent = (e) => {
+  //   if (e.code === 'Enter' || e.code === 'Space') {
+  //     bubbleLoop();
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   window.addEventListener('keydown', keyDownEvent);
+  // }, []);
 
   return (
-    <Bubble {
-      ...bubbleProps}
-      delay={index === 0 ? bubbleProps.delay : 0}
-      endDelay={index < set.length - 1 ? bubbleProps.endDelay : 0}
-      callback={bubbleLoop}
-    >
-      {set[index]}
-    </Bubble >
+    <>{show &&
+      <Bubble
+        {...bubbleProps}
+        duration={[bubbleProps.duration?.[index]]}
+        delay={index === 0 ? bubbleProps.delay : 0}
+        endDelay={index < set.length - 1 ? 400 : bubbleProps.endDelay}
+        callback={bubbleLoop}
+      >
+        {set[index]}
+      </Bubble >
+    }</>
   );
 }
 
