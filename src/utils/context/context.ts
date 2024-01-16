@@ -1,20 +1,21 @@
 import { createContext, useContext } from "react";
-// import { getCharsArr } from "../commons.js";
+import { CHARS } from "../commons.js";
 
 type RootContextType = {
   currentPage: string;
   activeSong: string;
-  play: boolean;
   player: any;
   setPlayer: (string) => void | null;
+  day: string;
 };
 
 export const RootContextInitial = {
   currentPage: "",
   activeSong: "",
   play: true,
-  player: null,
+  player: CHARS.aitor,
   setPlayer: null,
+  day: "day",
 };
 
 export const RootContext = createContext({});
@@ -30,7 +31,17 @@ export const nextPage = {
   intro: "/intro-island",
   introIsland: "/dock",
   dock: "/bar",
-  bar: "/intro",
+  bar: "/departure",
+  departure: "/day",
+  day: "/lunes",
+  lunes: "/martes",
+  martes: "/miercoles",
+  miercoles: "/jueves",
+  jueves: "/viernes",
+  map: "/fishing",
+  fishing: "/viernes",
+  viernes: "/final",
+  final: "/credits",
 };
 
 export const getNextPageId = (page) => {

@@ -1,35 +1,32 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 import classNames from "classnames";
-import { useLocation } from "react-router-dom";
-import { useRootContext, nextPage, getNextPageId } from "../../utils/context/context.ts";
-import { sleep } from "../../utils/commons.js";
+import { useRootContext, getNextPageId, nextPage } from "../../utils/context/context.ts";
 import PlayersMenu from "../../components/players-menu/players-menu.tsx";
 import "./page.scss";
 
-const Page = ({ enableNext = false, className = "", children }) => {
-  const location = useLocation();
+const Page = ({ enableNext = false, className = "", children, fadeOut = false, nextPageLink = "", load = "" }) => {
+  const [pageFadeOut, setPageFadeOut] = useState(fadeOut);
   const [page, setPage] = useState("/");
-  const [pageFadeOut, setPageFadeOut] = useState(false);
-  const { setFadeOut, setSetFadeOut, player } = useRootContext();
+  const { player } = useRootContext();
   const navigate = useNavigate();
-
-  const localSetFadeOut = async (value = true) => {
-    setPageFadeOut(value);
-    await sleep(1800);
-    setPageFadeOut(false);
-  };
+  const location = useLocation();
 
   useEffect(() => {
-    setPage(location.pathname.split("/")[1]);
-    // setContext({ ...setContext, currentPage: location.pathname.split("/")[1] });
-  }, [location]);
-
-  useEffect(() => {
-    if (!setFadeOut) {
-      setSetFadeOut(localSetFadeOut);
+    if (load !== "") {
+      navigate(load);
     }
-  }, [setSetFadeOut]);
+  }, [load]);
+
+  useEffect(() => {
+    setPageFadeOut(fadeOut);
+  }, [fadeOut]);
+
+  useEffect(() => {
+    if (location.pathname.split("/").length > 2) {
+      setPage(location.pathname.split("/")[1]);
+    }
+  }, [location]);
 
   return (
     <div className={classNames("fei-page", className, { "fei-page--fade-out": pageFadeOut })}>
@@ -45,11 +42,9 @@ const Page = ({ enableNext = false, className = "", children }) => {
         })}
       </ul>
       {player && children}
-      {/* <a href={nextPage[getNextPageId(page)]} className={`fei-page__next ${enableNext ? "fei-page__next--enabled" : ""}`}> */}
-      <Link to={nextPage[getNextPageId(page)]} className={`fei-page__next ${enableNext ? "fei-page__next--enabled" : ""}`}>
+      <Link to={nextPageLink} className={`fei-page__next ${enableNext ? "fei-page__next--enabled" : ""}`}>
         Siguiente
       </Link>
-      {/* </a> */}
     </div>
   );
 };

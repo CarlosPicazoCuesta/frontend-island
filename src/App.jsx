@@ -23,7 +23,6 @@ const App = () => {
   };
 
   const setPlayer = (player) => {
-    console.log("appJS: setPlayer", player);
     setContext({ ...context, player: player });
   };
 
@@ -31,20 +30,19 @@ const App = () => {
     setContext({ ...context, setFadeOut: f });
   }
 
-  useEffect(() => {
-    // console.log("context updated: ", context);
-  }, [context]);
+  function setDay(day) {
+    setContext({ ...context, day: day });
+  }
 
   return (
     <div className={classNames("fei-page-frame", { "cursor-none": context.currentPage !== "intro" || context.currentPage !== "intro-island" })}>
-      <RootContext.Provider value={{ ...context, setSetFadeOut, setSong, setPlay, setPlayer }}>
+      <RootContext.Provider value={{ ...context, setSetFadeOut, setSong, setPlay, setPlayer, setDay }}>
         {context.play && (
           <>
             <audio id="fei-audio-player" src={context.song} autoPlay loop={soundLoop} />
             <RouterProvider router={router} />
           </>
         )}
-        {!context.play && <button onClick={() => setPlay()}>Play</button>}
       </RootContext.Provider>
     </div>
   );

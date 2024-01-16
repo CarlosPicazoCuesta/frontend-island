@@ -1,20 +1,26 @@
 .fei-page-frame {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   width: 100vw;
   height: 100vh;
   background-color: #000;
   color: #f8f8f8;
+  padding: 48px 0;
 }
 
 .fei-page {
   position: relative;
+  align-self: center;
   min-width: 800px;
   min-height: 600px;
   opacity: 1;
   transition: opacity 0.8s ease-in-out;
   cursor: url("../../assets/images/things/icon.png"), auto;
+
+  &--top {
+    align-self: flex-start;
+  }
 
   &--cursor-none {
     cursor: none;
@@ -36,8 +42,8 @@
 
   &--bar {
     width: 800px;
-    height: 600px;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   &__id {

@@ -4,16 +4,17 @@ import isaac1 from "../assets/images/chars/isaac1.png";
 import somo1 from "../assets/images/chars/somo1.png";
 import isi1 from "../assets/images/chars/isi3.png";
 import marc1 from "../assets/images/chars/marc1.png";
-import dorian1 from "../assets/images/chars/dorian1.png";
+import dorian1 from "../assets/images/chars/dorian2.png";
 import lilen1 from "../assets/images/chars/lilen1.png";
 import dani1 from "../assets/images/chars/dani1.png";
+import capi1 from "../assets/images/npcs/capi1.png";
 
 export function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 export const NPCS = {
-  capi: { id: "capi", thumbnail: aitor1, color: "goldenrod", gender: "male" },
+  capi: { id: "capi", thumbnail: capi1, color: "goldenrod", gender: "male" },
 };
 
 export const CHARS = {

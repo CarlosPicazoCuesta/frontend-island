@@ -1,0 +1,25 @@
+.fei-page.fei-final {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  color: #dadada;
+  cursor: none;
+  width: 800px;
+  height: 600px;
+
+  .fei-final {
+    &__title {
+      font-size: 20px;
+      max-width: 96%;
+      background-color: transparent;
+      opacity: 1;
+      transition: opacity 0.7s ease-in-out;
+
+      &--fade-out {
+        opacity: 0;
+      }
+    }
+  }
+}

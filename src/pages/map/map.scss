@@ -1,0 +1,22 @@
+.fei-map {
+  position: relative;
+  width: 800px;
+  height: 600px;
+  background-image: url("../../assets/images/bgs/map.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  &__fish {
+    position: absolute;
+    top: 200px;
+    left: 164px;
+    width: 100px;
+    height: 80px;
+    background-image: url("../../assets/images/things/map-fish.png");
+    background-size: cover;
+
+    &:hover {
+      background-image: url("../../assets/images/things/map-fish-hover.png");
+    }
+  }
+}

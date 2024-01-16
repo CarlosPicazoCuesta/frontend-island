@@ -7,6 +7,14 @@
   background-size: contain;
 
   &--male {
+    &.fei-player--right {
+      transform: scaleX(-1);
+
+      .fei-thumbnail {
+        right: 12px;
+      }
+    }
+
     .fei-thumbnail {
       position: absolute;
       top: 0;
@@ -16,10 +24,47 @@
 
   &--female {
     background-image: url("../../assets/images/chars/basefemale.png");
+    transform: scaleX(-1);
+
+    &.fei-player--right {
+      transform: scaleX(1);
+      .fei-thumbnail {
+        right: 15px;
+      }
+    }
+
     .fei-thumbnail {
       position: absolute;
       top: -27px;
       left: 15px;
+    }
+  }
+
+  &--male {
+    &.size-s {
+      width: 88px;
+      height: 200px;
+      background-size: 88px 200px;
+
+      .fei-thumbnail {
+        position: absolute;
+        top: 0;
+        left: 9px;
+      }
+    }
+  }
+
+  &--female {
+    &.size-s {
+      width: 88px;
+      height: 200px;
+      background-size: 88px 200px;
+
+      .fei-thumbnail {
+        position: absolute;
+        top: -13px;
+        left: 17px;
+      }
     }
   }
 }

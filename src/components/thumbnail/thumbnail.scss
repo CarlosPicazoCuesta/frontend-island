@@ -12,6 +12,22 @@
   overflow: hidden;
   backdrop-filter: blur(10px);
 
+  &.size-l {
+    width: 120px;
+    height: 120px;
+  }
+
+  &.size-xl {
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+  }
+
+  &.size-s {
+    width: 65px;
+    height: 65px;
+  }
+
   &-wrapper {
     display: flex;
     flex-direction: column;
@@ -32,5 +48,11 @@
     &:hover {
       filter: brightness(1);
     }
+  }
+
+  &--disabled {
+    border: 0;
+    background: transparent;
+    // backdrop-filter: none;
   }
 }

@@ -1,0 +1,20 @@
+.fei-banner {
+  position: absolute;
+  top: 200px;
+  font-family: "blackpearl";
+  font-size: 80px;
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  opacity: 1;
+  transition: opacity 1.5s ease-in-out;
+
+  &--fade-out {
+    opacity: 0;
+  }
+
+  &--first {
+    width: auto;
+    left: 207px;
+  }
+}

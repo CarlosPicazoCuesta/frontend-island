@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { nextPage } from '../../utils/context/context.ts';
 import Page from '../../pages/page/page.jsx';
 import Secuence from '../../components/secuence/secuence.tsx';
+import { useRootContext } from '../../utils/context/context.ts';
 import './intro.scss';
 
 const IntroPage = () => {
   const navigate = useNavigate();
+  const { setSong } = useRootContext();
   const secuences = [
     "En algún lugar de Softtek...",
     "...un grupo de insensatos vivirán la más memorable aventura",
@@ -29,6 +31,10 @@ const IntroPage = () => {
   function loadNextPage() {
     navigate(nextPage.intro);
   }
+
+  useEffect(() => {
+    setSong("");
+  }, []);
 
   return (
     <Page>

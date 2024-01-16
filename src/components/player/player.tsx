@@ -4,12 +4,12 @@ import classNames from 'classnames';
 import Thumbnail from '../thumbnail/thumbnail.tsx';
 import './player.scss';
 
-const Player = ({ className = "" }) => {
+const Player = ({ className = "", size = "size-m", active = true }) => {
   const { player } = useRootContext();
 
   return (
-    <div className={classNames("fei-player", className, `fei-player--${player.gender}`)}>
-      <Thumbnail className="fei-player--bar" char={player} free />
+    <div className={classNames("fei-player", className, size, `fei-player--${player.gender}`)}>
+      <Thumbnail className="fei-player--bar" char={player} free active={active} size={size} />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { useCookies } from "react-cookie";
 import classnames from 'classnames';
 import { checkPass, handlePasswordChange } from '../../utils/core';
@@ -10,11 +10,12 @@ import login from '../../assets/sounds/login.mp3';
 import "./login.scss";
 
 const LoginPage = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [password, setPassword] = useState("");
   const [tip, setTip] = useState("");
   const [joke, setJoke] = useState("");
   const [fadeOut, setFadeOut] = useState(false);
+  const [loadPage, setLoadPage] = useState('');
   const { setSong } = useRootContext();
   const tips = [
     "Adivina, adivinanza...",
@@ -78,8 +79,11 @@ const LoginPage = () => {
   async function allowAccess(hash) {
     setCookie("PWD", hash, { path: "/" });
     setSong(login);
+    // navigate(nextPage.login);
+    await sleep(1000);
     setFadeOut(true);
-    navigate(nextPage.login);
+    console.log(nextPage.login);
+    setLoadPage(nextPage.login);
   }
 
   useEffect(() => {
@@ -98,7 +102,7 @@ const LoginPage = () => {
   }, []);
 
   return (
-    <Page>
+    <Page fadeOut={fadeOut} load={loadPage}>
       <main className={classnames("fei-page fei-login-page", { 'fei-page--fade-out': fadeOut })}>
         <input className="fei-login-page__password" autoFocus type="password" placeholder="Password" onChange={onChangePass} />
         <p className="fei-login-page__joke">{joke}</p>
