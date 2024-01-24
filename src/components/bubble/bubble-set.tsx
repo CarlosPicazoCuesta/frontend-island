@@ -1,6 +1,5 @@
 import React, { FC, useState, useEffect } from 'react';
 import Bubble, { BubbleProps } from './bubble.tsx';
-// import { sleep } from '../../utils/commons';
 
 type BubbleSetProps = {
   set: string[];
@@ -9,14 +8,19 @@ type BubbleSetProps = {
   show?: boolean;
 }
 
-const BubbleSet: FC<BubbleSetProps> = ({ set, bubbleProps, callback = () => { }, show = true }) => {
+const BubbleSet: FC<BubbleSetProps> = ({ set, bubbleProps, callback, show = true }) => {
   const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    setIndex(0);
+  }, [set]);
 
   function bubbleLoop() {
     if (index < set.length - 1) {
       setIndex(index + 1);
     } else {
-      callback();
+      console.log(callback);
+      callback?.();
     }
   }
 

@@ -27,7 +27,6 @@ const Viernes = () => {
   const [activeSecuence, setActiveSecuence] = useState(0);
   const [secuenceStage, setSecuenceStage] = useState(0);
   const [gifSecuence, setGifSecuence] = useState(false);
-  const [afterLecture, setAfterLecture] = useState(false);
   const { player, setSong } = useRootContext();
 
   const secuenceBubbles1 = [
@@ -94,45 +93,6 @@ const Viernes = () => {
   ["...tengo la sensación...",
     "...de que se me olvida algo..."]];
 
-  const secuenceTexts2 = [
-    [
-      "jejeje", "Reverendo, nos debe usted unas palabras"
-    ],
-    [
-      "blablablba 1",
-      "blablablba 2",
-      "blablablba 3",
-      "blablablba 4",
-    ],
-    ["Gran discurso", "Ahora sí: ¡Buen finde, tripulación!"],
-  ];
-
-  const secuenceBubbles2 = [
-    {
-      delay: 3000,
-      duration: [1800, 2500],
-      endDelay: 0,
-      color: NPCS.capi.color,
-      width: "475px",
-      position: { top: 620, left: 20 }
-    },
-    {
-      delay: 1500,
-      duration: [2000, 2000, 2000, 2000],
-      endDelay: 0,
-      color: CHARS.jose.color,
-      width: "470px",
-      position: { top: 620, left: 20 }
-    },
-    {
-      delay: 2000,
-      duration: [2500, 3000],
-      endDelay: 2000,
-      color: NPCS.capi.color,
-      width: "475px",
-      position: { top: 620, left: 20 }
-    }
-  ];
 
   const secuenceCallback1 = async () => {
     if (secuenceStage < secuenceBubbles1.length - 1) {
@@ -147,41 +107,20 @@ const Viernes = () => {
     }
   }
 
-  const secuenceCallback2 = async () => {
-    console.log("secuenceCallback2");
-    if (secuenceStage < secuenceBubbles2.length - 1) {
-      setSecuenceStage(secuenceStage + 1);
-    } else {
-      setActiveSecuence(0);
-      await sleep(1500);
-      setFadeOut(true);
-      await sleep(2000);
-      setLoadPage("/final");
-    }
-  }
-
-  const Secuence = ({ texts, bubbles, callback = () => { }, show = true }) => {
+  const Secuence = ({ texts, bubbles, callback = () => { } }) => {
     return <BubbleSet bubbleProps={bubbles[secuenceStage]} set={texts[secuenceStage]} callback={callback} show />;
   }
 
-  // async function secuenceSync() {
-
-  //   await sleep(2000);
-  //   setLoadPage("/day");
-  // }
-
-  useEffect(() => {
-    setSong("");
-    setActiveSecuence(1);
-    // secuenceSync();
-  }, []);
+  // useEffect(() => {
+  // setSong("");
+  // setActiveSecuence(1);
+  // }, []);
 
   return (
-    <Page fadeOut={fadeOut} load={loadPage} enableNext className="fei-friday fei-page--top" >
+    <Page fadeOut={fadeOut} load={loadPage} className="fei-friday fei-page--top" >
       <FadeIn
         callback={() => {
-          // setActiveSecuence(true);
-          // loadNextPage();
+          setActiveSecuence(1);
         }}
         delayStart={600}
       >
@@ -189,17 +128,17 @@ const Viernes = () => {
           <main className={classNames("fei-deck", "fei-page--cursor-none")} style={{ backgroundImage: `url(${bg})` }}>
             <div>
               {player.id !== 'aitor' && <>
-                <img className={classNames("fei-body", "fei-friday__body-1", { "fei-friday__body-1--after": afterLecture, })} src={body1} alt="body1" />
-                <Thumbnail char={CHARS.aitor} size="size-s" className={classNames("fei-friday__head-1", { "fei-friday__head-1--after": afterLecture, })} active={false} />
+                <img className={classNames("fei-body", "fei-friday__body-1")} src={body1} alt="body1" />
+                <Thumbnail char={CHARS.aitor} size="size-s" className={classNames("fei-friday__head-1")} active={false} />
               </>
               }
               {player.id !== 'isi' && <>
-                <img className={classNames("fei-body", "fei-friday__body-2", { "fei-friday__body-2--after": afterLecture, })} src={body2} alt="body2" />
-                <Thumbnail char={CHARS.isi} size="size-s" className={classNames("fei-friday__head-2", { "fei-friday__head-2--after": afterLecture, })} active={false} /></>
+                <img className={classNames("fei-body", "fei-friday__body-2")} src={body2} alt="body2" />
+                <Thumbnail char={CHARS.isi} size="size-s" className={classNames("fei-friday__head-2")} active={false} /></>
               }
               {player.id !== 'somo' && <>
-                <img className={classNames("fei-body", "fei-friday__body-6", { "fei-friday__body-6--after": afterLecture, })} src={body1} alt="body6" />
-                <Thumbnail char={CHARS.somo} size="size-s" className={classNames("fei-friday__head-6", { "fei-friday__head-6--after": afterLecture, })} active={false} />
+                <img className={classNames("fei-body", "fei-friday__body-6")} src={body1} alt="body6" />
+                <Thumbnail char={CHARS.somo} size="size-s" className={classNames("fei-friday__head-6")} active={false} />
               </>
               }
               <div className="fei-deck fei-deck--layer-1" style={{ backgroundImage: `url(${bgLayer1})` }}></div>
@@ -235,7 +174,6 @@ const Viernes = () => {
 
             <Player className="fei-friday__player" size="size-s" />
             {activeSecuence === 1 && <Secuence texts={secuenceTexts1} bubbles={secuenceBubbles1} callback={secuenceCallback1} />}
-            {activeSecuence === 2 && <Secuence texts={secuenceTexts2} bubbles={secuenceBubbles2} callback={secuenceCallback2} />}
             {gifSecuence && <img src={priest} className="fei-friday__priest" alt="priest" />}
             <div className="fei-deck fei-deck--layer-2" style={{ backgroundImage: `url(${bgLayer2})` }}></div>
           </main>

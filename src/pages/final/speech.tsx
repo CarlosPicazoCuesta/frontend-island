@@ -26,7 +26,7 @@ const Speech = ({ text, callback }) => {
     _8: { className: 'fei-right fei-goldenrod' }
   });
 
-
+  // TODO: Use this times *100
   const times = [
     5000,
     4000,
@@ -48,6 +48,7 @@ const Speech = ({ text, callback }) => {
   }
 
   async function outEffect() {
+    // TODO: Use this times *100
     await sleep(3000);
     setItemsConfig({
       _0: { className: 'fei-final__title--fade-out' },
@@ -95,6 +96,7 @@ const Speech = ({ text, callback }) => {
   }
 
   async function initate() {
+    // TODO: Use this times *100
     setSong(finalText)
     await sleep(1500);
     setIndexStage(0)

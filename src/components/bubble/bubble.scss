@@ -5,6 +5,7 @@
   font-size: 24px;
   opacity: 0;
   transition: opacity 0.1s linear;
+  z-index: 99;
 
   &--active {
     opacity: 1;

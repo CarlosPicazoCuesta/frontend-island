@@ -124,16 +124,16 @@ const Fishing = ({ }) => {
     "hydrate",
   ];
 
-  // const levels = [
-  //   { timeDelay: 1, timeActive: 1, animation: "static", items: 30 },
-  //   { timeDelay: 0.8, timeActive: 5, animation: "vertical", items: 30 },
-  //   { timeDelay: 0.6, timeActive: 4, animation: "both", items: 30 }
-  // ]
   const levels = [
     { timeDelay: 1, timeActive: 1, animation: "static", items: 30 },
-    { timeDelay: 0.2, timeActive: 2, animation: "vertical", items: 30 },
-    { timeDelay: 0.2, timeActive: 2, animation: "both", items: 30 }
+    { timeDelay: 0.8, timeActive: 5, animation: "vertical", items: 30 },
+    { timeDelay: 0.6, timeActive: 4, animation: "both", items: 30 }
   ]
+  // const levels = [
+  //   { timeDelay: 1, timeActive: 1, animation: "static", items: 30 },
+  //   { timeDelay: 0.2, timeActive: 2, animation: "vertical", items: 30 },
+  //   { timeDelay: 0.2, timeActive: 2, animation: "both", items: 30 }
+  // ]
 
   const staticPositions = [
     { top: 0, left: 0 },
@@ -385,7 +385,7 @@ const Fishing = ({ }) => {
   }
   ];
 
-  const dialogTimes = [4200, 3000, 3000, 4000, 3000, 3000, 5000, 3000, 3500, 4000, 7000];
+  const dialogTimes = [4200, 3000, 3000, 6000, 3000, 3000, 5000, 3000, 3500, 4000, 7000];
 
   async function setLevel1() {
     setLevel(1);

@@ -11,8 +11,8 @@ const IntroPage = () => {
   const text = [
     "Un hogar no es una isla, ni un barco.",
     "No es una ciudad, ni una casa.",
-    "Hogar es una emoción.",
-    "Y lo encontrarás allí donde están",
+    "El Hogar es una emoción.",
+    "Y la encontrarás allí donde están",
     "quienes hacen que sientas",
     "que estás en tu lugar en el mundo.",
     " ",
