@@ -18,7 +18,16 @@ const Day = () => {
     lunes: 'martes',
     martes: 'miercoles',
     miercoles: 'jueves',
-    jueves: 'viernes'
+    jueves: 'viernes',
+    viernes: 'release',
+  }
+  const nextDaysTitle = {
+    day: 'lunes',
+    lunes: 'martes',
+    martes: 'miercoles',
+    miercoles: 'jueves',
+    jueves: 'viernes',
+    viernes: 'Más tarde, en isla Tortuga...',
   }
 
   async function loadNextPage() {
@@ -39,7 +48,7 @@ const Day = () => {
         delayStart={600}
       >
         <main className={classNames("fei-day", "fei-page--cursor-none")}>
-          <h2 className="fei-day__title">{nextDays[day]}</h2>
+          <h2 className="fei-day__title">{nextDaysTitle[day]}</h2>
         </main>
       </FadeIn>
     </Page >

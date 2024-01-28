@@ -38,9 +38,12 @@ export const nextPage = {
   martes: "/miercoles",
   miercoles: "/jueves",
   jueves: "/viernes",
+  viernes: "/release",
+  release: "/final",
   map: "/fishing",
-  fishing: "/viernes",
-  viernes: "/final",
+  fishing: "/day",
+  topDeck: "/barracks",
+  barracks: "/day",
   final: "/credits",
 };
 

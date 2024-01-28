@@ -44,6 +44,10 @@
     &--dorian {
       transform: rotate(16deg);
     }
+
+    &--somo {
+      transform: rotate(12deg);
+    }
   }
 
   &--event {
@@ -57,6 +61,9 @@
   &--disabled {
     border: 0;
     background: transparent;
-    // backdrop-filter: none;
+  }
+
+  &--active-on-hover:not(:hover) {
+    border-color: transparent !important;
   }
 }

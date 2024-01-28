@@ -19,7 +19,6 @@ const BubbleSet: FC<BubbleSetProps> = ({ set, bubbleProps, callback, show = true
     if (index < set.length - 1) {
       setIndex(index + 1);
     } else {
-      console.log(callback);
       callback?.();
     }
   }

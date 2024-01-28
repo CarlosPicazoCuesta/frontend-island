@@ -17,4 +17,18 @@
       background-image: url("../../assets/images/things/map-hover.png");
     }
   }
+
+  &__barracks {
+    position: absolute;
+    top: 398px;
+    left: 394px;
+    width: 175px;
+    height: 141px;
+    background-image: url("../../assets/images/things/escaleras1.png");
+    background-size: 180px 141px;
+
+    &:hover {
+      background-image: url("../../assets/images/things/escaleras-hover.png");
+    }
+  }
 }

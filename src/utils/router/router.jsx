@@ -16,8 +16,10 @@ import Martes from "../../pages/tuesday/tuesday.tsx";
 import Miercoles from "../../pages/wednesday/wednesday.tsx";
 import Jueves from "../../pages/thursday/thursday.tsx";
 import Viernes from "../../pages/friday/friday.tsx";
+import Release from "../../pages/release/release.tsx";
 import Map from "../../pages/map/map.tsx";
 import Fishing from "../../pages/fishing/fishing.tsx";
+import Barracks from "../../pages/barracks/barracks.tsx";
 
 const getRouter = (pwd) => {
   // const Home = () => {
@@ -92,12 +94,20 @@ const getRouter = (pwd) => {
       element: <Viernes />,
     },
     {
+      path: "/release",
+      element: <Release />,
+    },
+    {
       path: "/map",
       element: <Map />,
     },
     {
       path: "/fishing",
       element: <Fishing />,
+    },
+    {
+      path: "/barracks",
+      element: <Barracks />,
     },
     {
       path: "/ship",

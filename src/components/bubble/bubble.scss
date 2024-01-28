@@ -6,8 +6,13 @@
   opacity: 0;
   transition: opacity 0.1s linear;
   z-index: 99;
+  backdrop-filter: brightness(0.3);
 
   &--active {
     opacity: 1;
+  }
+
+  &--bg {
+    backdrop-filter: brightness(0.3);
   }
 }

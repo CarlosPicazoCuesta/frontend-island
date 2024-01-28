@@ -1,0 +1,75 @@
+.fei-barracks {
+  position: relative;
+  width: 800px;
+  height: 600px;
+  background-size: cover;
+  overflow: hidden;
+
+  &__head-1 {
+    position: absolute;
+    z-index: 3;
+    top: 283px;
+    left: 292px;
+  }
+  &__body-1 {
+    position: absolute;
+    z-index: 2;
+    height: 288px;
+    top: 278px;
+    left: 266px;
+  }
+  &__body-2 {
+    position: absolute;
+    z-index: 2;
+    height: 288px;
+    top: 268px;
+    left: 278px;
+  }
+  &__player {
+    position: absolute;
+    z-index: 2;
+    top: 315px;
+    left: 473px;
+  }
+
+  &__play-zone {
+    z-index: 5;
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    top: 5%;
+    left: 5%;
+  }
+
+  &__chars {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 12px;
+    gap: 4px 62px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  &__desktop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    &-img {
+      display: block;
+      width: 650px;
+    }
+  }
+  &__char {
+    position: relative;
+  }
+  &__icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 60px;
+  }
+}

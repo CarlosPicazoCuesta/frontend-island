@@ -19,7 +19,7 @@ export const NPCS = {
 
 export const CHARS = {
   isi: { id: "isi", name: "Isi", thumbnail: isi1, color: "#9932cc", gender: "female" },
-  aitor: { id: "aitor", name: "Aitor", thumbnail: aitor1, color: "#0000ff", gender: "male" },
+  aitor: { id: "aitor", name: "Aitor", thumbnail: aitor1, color: "#fcfcfc", gender: "male" },
   somo: { id: "somo", name: "Somo", thumbnail: somo1, color: "#c63232", gender: "male" },
   marc: { id: "marc", name: "Marc", thumbnail: marc1, color: "#ff0000", gender: "male" },
   dorian: { id: "dorian", name: "Dorian", thumbnail: dorian1, color: "#ffa500", gender: "male" },

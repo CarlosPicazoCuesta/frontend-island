@@ -38,7 +38,7 @@ const Martes = () => {
         delayStart={600}
       >
         <main className={classNames("fei-tuesday")}>
-          <TopDeck loadMap={() => setLoadPage('/map')} />
+          <TopDeck loadMap={() => setLoadPage('/map')} loadBarracks={() => setLoadPage('/barracks')} />
         </main>
       </FadeIn>
     </Page>
