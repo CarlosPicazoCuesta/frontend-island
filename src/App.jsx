@@ -26,6 +26,10 @@ const App = () => {
     setContext({ ...context, player: player });
   };
 
+  const addMissionAccomplished = (mission) => {
+    setContext({ ...context, missionsAccomplished: [...context.missionsAccomplished, mission] });
+  };
+
   function setSetFadeOut(f) {
     setContext({ ...context, setFadeOut: f });
   }
@@ -36,7 +40,7 @@ const App = () => {
 
   return (
     <div className={classNames("fei-page-frame", { "cursor-none": context.currentPage !== "intro" || context.currentPage !== "intro-island" })}>
-      <RootContext.Provider value={{ ...context, setSetFadeOut, setSong, setPlay, setPlayer, setDay }}>
+      <RootContext.Provider value={{ ...context, setSetFadeOut, setSong, setPlay, setPlayer, setDay, addMissionAccomplished }}>
         {context.play && (
           <>
             <audio id="fei-audio-player" src={context.song} autoPlay loop={soundLoop} />

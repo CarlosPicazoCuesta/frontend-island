@@ -25,7 +25,7 @@ import check from '../../assets/images/things/check.png';
 import "./barracks.scss";;
 
 const Barracks = ({ }) => {
-  const { player } = useRootContext();
+  const { player, addMissionAccomplished } = useRootContext();
   const [fadeOut, setFadeOut] = useState(false);
   const [playZoneActive, setPlayZoneActive] = useState(false);
   const [loadPage, setLoadPage] = useState("");
@@ -186,6 +186,7 @@ const Barracks = ({ }) => {
   }
 
   useEffect(() => {
+    addMissionAccomplished("barracks");
     setDesktops([NPCS.capi.id, ...getCharsArr()].sort((a, b) => 0.5 - Math.random()));
   }, []);
 

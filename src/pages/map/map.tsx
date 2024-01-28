@@ -9,7 +9,7 @@ import "./map.scss";
 
 
 const Map = ({ }) => {
-  const { player } = useRootContext();
+  const { player, missionsAccomplished } = useRootContext();
   const [loadPage, setLoadPage] = useState('');
   const [fadeOut, setFadeOut] = useState(false);
   const [selectedOption, setSelectedOption] = useState(-1);
@@ -46,7 +46,7 @@ const Map = ({ }) => {
       >
 
         <main className="fei-map">
-          <span className="fei-map__fish" onClick={loadFish} />
+          {!missionsAccomplished.includes("fishing") && <span className="fei-map__fish" onClick={loadFish} />}
         </main>
         {selectedOption >= 0 && <Dialog {...dialogProps[selectedOption]} />}
       </FadeIn>

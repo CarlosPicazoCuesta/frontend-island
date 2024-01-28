@@ -6,7 +6,9 @@ type RootContextType = {
   activeSong: string;
   player: any;
   setPlayer: (string) => void | null;
+  addMissionAccomplished: (string) => void;
   day: string;
+  missionsAccomplished: string[];
 };
 
 export const RootContextInitial = {
@@ -16,6 +18,7 @@ export const RootContextInitial = {
   player: CHARS.aitor,
   setPlayer: null,
   day: "day",
+  missionsAccomplished: [],
 };
 
 export const RootContext = createContext({});

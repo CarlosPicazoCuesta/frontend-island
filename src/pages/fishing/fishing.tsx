@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
-import { useRootContext } from '../../utils/context/context.ts';
+import { RootContext, useRootContext } from '../../utils/context/context.ts';
 import Page from '../page/page.jsx';
 import FadeIn from '../../components/fade-in/fade-in.jsx';
 import { sleep, NPCS } from '../../utils/commons.js';
@@ -8,7 +8,7 @@ import "./fishing.scss";
 import Dialog from '../../components/dialog/dialog.tsx';
 
 const Fishing = ({ }) => {
-  const { player } = useRootContext();
+  const { player, addMissionAccomplished } = useRootContext();
   const [level, setLevel] = useState(0);
   const [dialogStage, setDialogStage] = useState(0);
   const [playingItems, setPlayingItems] = useState<any[]>([]);
@@ -515,6 +515,7 @@ const Fishing = ({ }) => {
     <Page className="fei-page--top" fadeOut={fadeOut} load={loadPage}>
       <FadeIn
         callback={() => {
+          addMissionAccomplished("fishing");
           setLevel1();
         }}
         delayStart={600}
