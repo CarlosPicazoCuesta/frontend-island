@@ -6,6 +6,7 @@ import Page from "../page/page.jsx";
 import FadeIn from "../../components/fade-in/fade-in.jsx";
 import Player from "../../components/player/player.tsx";
 import Thumbnail from "../../components/thumbnail/thumbnail.tsx";
+import BubbleSet from "../../components/bubble/bubble-set.tsx";
 import Dialog from "../../components/dialog/dialog.tsx";
 // import Secuence from "../../components/secuence/secuence.tsx";
 import bg from "../../assets/images/bgs/deck-0.jpg";
@@ -34,6 +35,55 @@ const Lunes = () => {
   const [showEternity, setShowEternity] = useState(false);
   const [afterEternity, setAfterEternity] = useState(false);
   const { player, setSong } = useRootContext();
+  const [charActive, setCharActive] = useState("");
+  const [showBubbles, setShowBubbles] = useState(false);
+  const [secuenceStage, setSecuenceStage] = useState(0);
+
+
+  const secuenceBubbles = [
+    {
+      delay: 0,
+      duration: [1200],
+      endDelay: 800,
+      color: CHARS.aitor.color,
+      width: "200px",
+      position: player.id === CHARS.aitor.id ? { top: 153, left: 376 } : { top: 290, left: 132 },
+      initCallback: () => setCharActive(CHARS.aitor.id),
+      className: "fei-bubble--bg"
+    },
+    {
+      delay: 0,
+      duration: [1500],
+      endDelay: 800,
+      color: CHARS.lilen.color,
+      width: "220px",
+      position: player.id === CHARS.lilen.id ? { top: 153, left: 376 } : { top: 157, left: 240 },
+      initCallback: () => setCharActive(CHARS.lilen.id),
+      className: "fei-bubble--bg"
+    }
+  ]
+
+  const secuenceTexts = [
+    ["Egun on"],
+    ["Hooolis!"]
+  ];
+
+
+  const secuenceCallback = async () => {
+    setCharActive("");
+    if (secuenceStage < secuenceBubbles.length - 1) {
+      setSecuenceStage(secuenceStage + 1);
+    } else {
+      setShowBubbles(false);
+      secuenceSync2();
+      // setActiveSecuence(0);
+      // setSecuenceStage(0);
+      // setFadeOut(true);
+      // setMusic("");
+      // await sleep(5000);
+      // setLoadPage("/final");
+    }
+  }
 
   const dialogProps = [{
     speaker: player.id === "isaac" ? CHARS.jose : CHARS.isaac,
@@ -104,6 +154,12 @@ const Lunes = () => {
     await sleep(1500);
     setDialogIndex(1);
     await sleep(4000);
+    setShowSecuence(false);
+    setShowBubbles(true);
+  }
+
+  async function secuenceSync2() {
+    setShowSecuence(true);
     setDialogIndex(2);
     await sleep(6000);
     setDialogIndex(3);
@@ -165,7 +221,7 @@ const Lunes = () => {
             <main className={classNames("fei-deck", "fei-page--cursor-none")} style={{ backgroundImage: `url(${bg})` }}>
               {player.id !== 'aitor' && !afterEternity && <>
                 <img className={classNames("fei-body", "fei-monday__body-1", { "fei-monday__body-1--after": afterEternity, })} src={body1} alt="body1" />
-                <Thumbnail char={CHARS.aitor} size="size-s" className={classNames("fei-monday__head-1", { "fei-monday__head-1--after": afterEternity, })} active={false} />
+                <Thumbnail char={CHARS.aitor} size="size-s" className={classNames("fei-monday__head-1", { "fei-monday__head-1--after": afterEternity, })} active={charActive === CHARS.aitor.id} />
               </>
               }
               {player.id !== 'isi' && <>
@@ -192,7 +248,7 @@ const Lunes = () => {
               }
               {player.id !== 'lilen' && !afterEternity && <>
                 <img className="fei-body fei-monday__body-9" src={body5} alt="body9" />
-                <Thumbnail char={CHARS.lilen} size="size-s" className="fei-monday__head-9" active={false} />
+                <Thumbnail char={CHARS.lilen} size="size-s" className="fei-monday__head-9" active={charActive === CHARS.lilen.id} />
               </>
               }
               {player.id !== 'dorian' && <>
@@ -209,6 +265,7 @@ const Lunes = () => {
               <Player className="fei-monday__player" size="size-s" />
               <div className="fei-deck fei-deck--layer-2" style={{ backgroundImage: `url(${bgLayer2})` }}></div>
             </main>
+            {showBubbles && <BubbleSet bubbleProps={secuenceBubbles[secuenceStage]} set={secuenceTexts[secuenceStage]} callback={secuenceCallback} show />}
             {showSecuence && <Dialog {...dialogProps[dialogIndex]} />}
           </div>}
       </FadeIn>

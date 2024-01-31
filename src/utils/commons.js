@@ -14,7 +14,7 @@ export function sleep(ms) {
 }
 
 export const NPCS = {
-  capi: { id: "capi", thumbnail: capi1, color: "goldenrod", gender: "male" },
+  capi: { id: "capi", thumbnail: capi1, color: "goldenrod", gender: "male", name: "Capi" },
 };
 
 export const CHARS = {

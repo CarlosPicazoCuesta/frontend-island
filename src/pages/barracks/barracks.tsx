@@ -40,16 +40,16 @@ const Barracks = ({ }) => {
 
 
   const [desktopsData, setDesktopsData] = useState({
-    [NPCS.capi.id]: { desktopImg: capiDesktop, correct: false },
-    [CHARS.aitor.id]: { desktopImg: aitorDesktop, correct: false },
-    [CHARS.isi.id]: { desktopImg: isiDesktop, correct: false },
-    [CHARS.somo.id]: { desktopImg: somoDesktop, correct: false },
-    [CHARS.marc.id]: { desktopImg: marcDesktop, correct: false },
-    [CHARS.dorian.id]: { desktopImg: dorianDesktop, correct: false },
-    [CHARS.jose.id]: { desktopImg: joseDesktop, correct: false },
-    [CHARS.lilen.id]: { desktopImg: lilenDesktop, correct: false },
-    [CHARS.isaac.id]: { desktopImg: isaacDesktop, correct: false },
-    [CHARS.dani.id]: { desktopImg: daniDesktop, correct: false },
+    [NPCS.capi.id]: { desktopImg: capiDesktop, correct: false, name: "Capi" },
+    [CHARS.aitor.id]: { desktopImg: aitorDesktop, correct: false, name: CHARS.aitor.name },
+    [CHARS.isi.id]: { desktopImg: isiDesktop, correct: false, name: CHARS.isi.name },
+    [CHARS.somo.id]: { desktopImg: somoDesktop, correct: false, name: CHARS.somo.name },
+    [CHARS.marc.id]: { desktopImg: marcDesktop, correct: false, name: CHARS.marc.name },
+    [CHARS.dorian.id]: { desktopImg: dorianDesktop, correct: false, name: CHARS.dorian.name },
+    [CHARS.jose.id]: { desktopImg: joseDesktop, correct: false, name: CHARS.jose.name },
+    [CHARS.lilen.id]: { desktopImg: lilenDesktop, correct: false, name: CHARS.lilen.name },
+    [CHARS.isaac.id]: { desktopImg: isaacDesktop, correct: false, name: CHARS.isaac.name },
+    [CHARS.dani.id]: { desktopImg: daniDesktop, correct: false, name: CHARS.dani.name },
   });
   // const charsList = [NPCS.capi.id, ...getCharsArr()];
 
@@ -108,13 +108,13 @@ const Barracks = ({ }) => {
   {
     speaker: speaker,
     disabled: true,
-    options: [{ id: "_02", text: `Bravo, ${desktops[currentDesktop]}. Ese va a ser tu sitio por mucho tiempo` }],
+    options: [{ id: "_02", text: `Bravo, ${player.name}.Ese va a ser tu sitio por mucho tiempo` }],
     className: 'fei-dialog--xl'
   },
   {
     speaker: speaker,
     disabled: true,
-    options: [{ id: "_03", text: `Ese es tu sitio, ${desktops[currentDesktop]}. Espero que no se te vuelva a olvidar` }],
+    options: [{ id: "_03", text: `Ese es tu sitio, ${player.name}.Espero que no se te vuelva a olvidar` }],
     className: 'fei-dialog--xl'
   },
   {

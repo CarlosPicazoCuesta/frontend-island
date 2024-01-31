@@ -3,6 +3,7 @@ import { useNavigate, Link, useLocation } from "react-router-dom";
 import classNames from "classnames";
 import { useRootContext, getNextPageId, nextPage } from "../../utils/context/context.ts";
 import PlayersMenu from "../../components/players-menu/players-menu.tsx";
+import DaysSelector from "../../components/days-selector/days-selector.tsx";
 import "./page.scss";
 
 const Page = ({ enableNext = false, className = "", children, fadeOut = false, nextPageLink = "", load = "" }) => {
@@ -31,6 +32,7 @@ const Page = ({ enableNext = false, className = "", children, fadeOut = false, n
   return (
     <div className={classNames("fei-page", className, { "fei-page--fade-out": pageFadeOut })}>
       <PlayersMenu />
+      <DaysSelector />
       <h1 className="fei-page__id">{page}</h1>
       <ul className="fei-page__nav">
         {Object.keys(nextPage).map((key) => {

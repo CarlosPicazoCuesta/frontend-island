@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import classNames from "classnames";
-import { useNavigate } from 'react-router-dom';
 import { nextPage, useRootContext } from "../../utils/context/context.ts";
 import { sleep } from "../../utils/commons.js";
 import Page from "../page/page.jsx";
@@ -32,7 +31,7 @@ const Day = () => {
 
   async function loadNextPage() {
     await sleep(1200);
-    if (nextDays[day] === 'lunes') { setSong(call); await sleep(1000); }
+    if (nextDays[day] === 'lunes') { setSong(call); await sleep(1500); }
     setFadeOut(true);
     await sleep(2500);
     setDay(nextDays[day]);

@@ -5,9 +5,9 @@ import './top-deck.scss';
 
 const TopDeck = ({ loadMap, loadBarracks }) => {
   const { missionsAccomplished } = useRootContext();
-  console.log(missionsAccomplished);
-  console.log(!missionsAccomplished.includes("fishing"));
-  console.log(!missionsAccomplished.includes("barracks"));
+  // console.log(missionsAccomplished);
+  // console.log(!missionsAccomplished.includes("fishing"));
+  // console.log(!missionsAccomplished.includes("barracks"));
 
   return (
     <div className="fei-top-deck">

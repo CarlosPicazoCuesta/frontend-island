@@ -83,11 +83,11 @@ const getRouter = (pwd) => {
     },
     {
       path: "/miercoles",
-      element: <Miercoles />,
+      element: <Martes />,
     },
     {
       path: "/jueves",
-      element: <Jueves />,
+      element: <Martes />,
     },
     {
       path: "/viernes",

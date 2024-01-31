@@ -19,4 +19,18 @@
       background-image: url("../../assets/images/things/map-fish-hover.png");
     }
   }
+
+  &__docusaurus {
+    position: absolute;
+    top: 322px;
+    left: 560px;
+    width: 163px;
+    height: 125px;
+    background-image: url("../../assets/images/things/docusaurus.png");
+    background-size: cover;
+
+    &:hover {
+      background-image: url("../../assets/images/things/docusaurus-hover.png");
+    }
+  }
 }
