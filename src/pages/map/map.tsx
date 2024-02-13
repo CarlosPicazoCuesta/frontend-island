@@ -4,11 +4,10 @@ import { sleep, CHARS } from '../../utils/commons.js';
 import Page from '../page/page.jsx';
 import FadeIn from '../../components/fade-in/fade-in.jsx';
 import Dialog from '../../components/dialog/dialog.tsx';
-
 import "./map.scss";
 
 
-const Map = ({ }) => {
+const Map = () => {
   const { player, missionsAccomplished, addMissionAccomplished } = useRootContext();
   const [loadPage, setLoadPage] = useState('');
   const [fadeOut, setFadeOut] = useState(false);
@@ -78,6 +77,16 @@ const Map = ({ }) => {
     disabled: true,
     options: [{ id: "_12", text: "el Docusaurus, me refiero" }],
     className: 'fei-dialog--xl'
+  }, {
+    speaker: player.id === CHARS.aitor.id ? CHARS.somo : CHARS.aitor,
+    disabled: true,
+    options: [{ id: "_13", text: "¡Duelos en aguas piratas!" }],
+    className: 'fei-dialog--xl'
+  }, {
+    speaker: player.id === CHARS.aitor.id ? CHARS.somo : CHARS.aitor,
+    disabled: true,
+    options: [{ id: "_14", text: "Esto se pone interesante" }],
+    className: 'fei-dialog--xl'
   }
   ]
 
@@ -125,18 +134,25 @@ const Map = ({ }) => {
     addMissionAccomplished("docusaurus");
   }
 
+  async function loadDuels() {
+    setSelectedOption(13);
+    await sleep(3000);
+    setSelectedOption(14);
+    await sleep(3000);
+    setFadeOut(true);
+    await sleep(1500);
+    setLoadPage('/duels');
+  }
+
   return (
     <Page load={loadPage} fadeOut={fadeOut} className="fei-page--top">
       <FadeIn
-        callback={() => {
-          // setActiveSecuence(true);
-          // loadNextPage();
-        }}
         delayStart={600}
       >
         <main className="fei-map">
           {!missionsAccomplished.includes("fishing") && <span className="fei-map__fish" onClick={loadFish} />}
           {!missionsAccomplished.includes("docusaurus") && <span className="fei-map__docusaurus" onClick={player.id === CHARS.isi.id ? loadDocusaurusIsi : loadDocusaurus} />}
+          {!missionsAccomplished.includes("duels") && <span className="fei-map__duels" onClick={loadDuels} />}
         </main>
         {selectedOption >= 0 && <Dialog {...dialogProps[selectedOption]} />}
       </FadeIn>

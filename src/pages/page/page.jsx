@@ -31,9 +31,9 @@ const Page = ({ enableNext = false, className = "", children, fadeOut = false, n
 
   return (
     <div className={classNames("fei-page", className, { "fei-page--fade-out": pageFadeOut })}>
-      <PlayersMenu />
-      <DaysSelector />
-      <h1 className="fei-page__id">{page}</h1>
+      {/* <PlayersMenu /> */}
+      {/* <DaysSelector /> */}
+      {/* <h1 className="fei-page__id">{page}</h1>
       <ul className="fei-page__nav">
         {Object.keys(nextPage).map((key) => {
           return (
@@ -42,7 +42,7 @@ const Page = ({ enableNext = false, className = "", children, fadeOut = false, n
             </h2>
           );
         })}
-      </ul>
+      </ul> */}
       {player && children}
       <Link to={nextPageLink} className={`fei-page__next ${enableNext ? "fei-page__next--enabled" : ""}`}>
         Siguiente

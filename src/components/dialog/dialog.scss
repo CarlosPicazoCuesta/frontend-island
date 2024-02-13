@@ -46,4 +46,11 @@
       font-size: 32px;
     }
   }
+
+  &--over {
+    z-index: 999;
+    position: fixed;
+    background: #000000dd;
+    bottom: 172px;
+  }
 }

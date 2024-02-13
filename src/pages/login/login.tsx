@@ -48,7 +48,7 @@ const LoginPage = () => {
 
   async function tipsLoader() {
     for (const tip of tips) {
-      await sleep(10000);
+      await sleep(7000);
       setTip(tip);
     }
   }
@@ -79,10 +79,8 @@ const LoginPage = () => {
   async function allowAccess(hash) {
     setCookie("PWD", hash, { path: "/" });
     setSong(login);
-    // navigate(nextPage.login);
     await sleep(1000);
     setFadeOut(true);
-    console.log(nextPage.login);
     setLoadPage(nextPage.login);
   }
 

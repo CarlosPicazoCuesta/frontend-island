@@ -27,7 +27,7 @@ const Muelle = () => {
   }
 
   useEffect(() => {
-    setSong(ocean, true);
+    setSong(ocean);
   }, []);
 
   return (

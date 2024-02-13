@@ -12,15 +12,15 @@ import bg from "../../assets/images/bgs/barracks.png";
 import body2 from '../../assets/images/chars/body-2.png';
 import body5 from '../../assets/images/chars/body-5.png';
 import capiDesktop from '../../assets/images/desktops/capi-desktop.png';
-import aitorDesktop from '../../assets/images/desktops/aitor-desktop.png';
-import isiDesktop from '../../assets/images/desktops/isi-desktop.png';
+import aitorDesktop from '../../assets/images/desktops/aitor-desktop.jpg';
+import isiDesktop from '../../assets/images/desktops/isi-desktop.jpg';
 import somoDesktop from '../../assets/images/desktops/somo-desktop.png';
 import marcDesktop from '../../assets/images/desktops/marc-desktop.png';
-import dorianDesktop from '../../assets/images/desktops/dorian-desktop.png';
-import joseDesktop from '../../assets/images/desktops/jose-desktop.png';
+import dorianDesktop from '../../assets/images/desktops/dorian-desktop.jpg';
+import joseDesktop from '../../assets/images/desktops/jose-desktop.jpg';
 import lilenDesktop from '../../assets/images/desktops/lilen-desktop.png';
 import isaacDesktop from '../../assets/images/desktops/isaac-desktop.png';
-import daniDesktop from '../../assets/images/desktops/dani-desktop.png';
+import daniDesktop from '../../assets/images/desktops/dani-desktop.jpg';
 import check from '../../assets/images/things/check.png';
 import "./barracks.scss";;
 
@@ -56,7 +56,7 @@ const Barracks = ({ }) => {
   const secuenceBubbles = [
     {
       delay: 1000,
-      duration: [2500, 3500, 4500, 2500, 2000],
+      duration: [2500, 3500, 4500, 2500, 2000, 4800],
       endDelay: 2000,
       color: speaker.color,
       width: "474px",
@@ -65,7 +65,7 @@ const Barracks = ({ }) => {
     },
     {
       delay: 1000,
-      duration: [1500, 6500, 3500],
+      duration: [6000, 4500],
       endDelay: 2000,
       color: speaker.color,
       width: "474px",
@@ -78,8 +78,10 @@ const Barracks = ({ }) => {
       "Es importante que distingas nuestros puestos",
       "No vaya a ser que te comas el sandwich de una mesa que no es la tuya",
       "Ha muerto gente por menos",
-      "Y hemos oído hablar de ti..."],
-    ["Pues ya está", "Espero que esto te ayude a conocer un poco mejor a tus compañeros", "Por hoy hemos terminado"]
+      "Y hemos oído hablar de ti...",
+      "Relacionar a cada uno con su puesto va a ser un trabajo de observación y deducción. Adelante."
+    ],
+    ["Espero que esto te ayude a conocer un poco mejor a tus compañeros", "Ahora te dejo que te vayas instalando. ¡Hasta mañana!"]
   ];
   const secuenceCallback = async () => {
     if (secuenceStage === 0) {
@@ -97,37 +99,37 @@ const Barracks = ({ }) => {
     speaker: speaker,
     disabled: true,
     options: [{ id: "_00", text: "¡Correcto!" }],
-    className: 'fei-dialog--xl'
+    className: 'fei-dialog--xl fei-dialog--over'
   },
   {
     speaker: speaker,
     disabled: true,
     options: [{ id: "_01", text: `¡Cuidado! Ese es el puesto de ${desktops[currentDesktop]}` }],
-    className: 'fei-dialog--xl'
+    className: 'fei-dialog--xl fei-dialog--over'
   },
   {
     speaker: speaker,
     disabled: true,
     options: [{ id: "_02", text: `Bravo, ${player.name}.Ese va a ser tu sitio por mucho tiempo` }],
-    className: 'fei-dialog--xl'
+    className: 'fei-dialog--xl fei-dialog--over'
   },
   {
     speaker: speaker,
     disabled: true,
     options: [{ id: "_03", text: `Ese es tu sitio, ${player.name}.Espero que no se te vuelva a olvidar` }],
-    className: 'fei-dialog--xl'
+    className: 'fei-dialog--xl fei-dialog--over'
   },
   {
     speaker: speaker,
     disabled: true,
     options: [{ id: "_04", text: `¡PELIGRO! Ese es el sitio de Capi. Si alguna vez te pilla por ahí podría estarte hablando durante horas...` }],
-    className: 'fei-dialog--xl'
+    className: 'fei-dialog--xl fei-dialog--over'
   },
   {
     speaker: speaker,
     disabled: true,
     options: [{ id: "_05", text: `Ahí trabajo yo` }],
-    className: 'fei-dialog--xl'
+    className: 'fei-dialog--xl fei-dialog--over'
   }
   ]
 
@@ -162,6 +164,7 @@ const Barracks = ({ }) => {
       setDialogIndex(1);
       return 2000;
     }
+    return 2000;
   }
 
   async function selectChar(charId) {
@@ -221,8 +224,8 @@ const Barracks = ({ }) => {
                 })}
               </div>
               <div className="fei-barracks__desktop">
-                <h2 style={{ "position": "absolute" }}>{desktops[currentDesktop]}</h2>
-                <img className="fei-barracks__desktop-img" src={desktopsData[desktops[currentDesktop]].desktopImg} alt="" />
+                {/* <h2 style={{ "position": "absolute" }}>{desktops[currentDesktop]}</h2> */}
+                <img className={`fei-barracks__desktop-img fei-barracks__desktop-img--${desktopsData[desktops[currentDesktop]].name}`} src={desktopsData[desktops[currentDesktop]].desktopImg} alt="" />
               </div>
             </div>
           }

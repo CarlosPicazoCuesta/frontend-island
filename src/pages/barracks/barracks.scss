@@ -34,11 +34,14 @@
 
   &__play-zone {
     z-index: 5;
-    position: absolute;
-    width: 90%;
-    height: 90%;
+    // position: absolute;
+    // width: 90%;
+    // height: 90%;
     top: 5%;
     left: 5%;
+    position: fixed;
+    width: 100%;
+    height: 90vh;
   }
 
   &__chars {
@@ -60,7 +63,40 @@
 
     &-img {
       display: block;
-      width: 650px;
+      // width: 650px;
+      max-width: 100%;
+      max-height: calc(100vh - 260px);
+
+      // &--Dorian {
+      //   width: 650px;
+      // }
+      // &--Isaac {
+      //   width: 650px;
+      // }
+      // &--Lilen {
+      //   width: 650px;
+      // }
+      // &--Marc {
+      //   width: 650px;
+      // }
+      // &--Somo {
+      //   width: 650px;
+      // }
+      // &--Isi {
+      //   width: 650px;
+      // }
+      // &--Aitor {
+      //   width: 650px;
+      // }
+      // &--Capi {
+      //   width: 650px;
+      // }
+      // &--Jose {
+      //   width: 650px;
+      // }
+      // &--Dani {
+      //   width: 505px;
+      // }
     }
   }
   &__char {

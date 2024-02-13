@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
+import { useRootContext } from "../../utils/context/context.ts";
 import { sleep, CHARS, NPCS } from '../../utils/commons.js';
 import Page from '../../pages/page/page';
 import Banner from '../../components/banner/banner.tsx';
+import ocean from "../../assets/sounds/ocean1.mp3";
 import bg from '../../assets/images/bgs/credits2.gif';
 import Thumbnail from '../../components/thumbnail/thumbnail.tsx';
 import capiCredits from '../../assets/images/npcs/capiCredits.png';
@@ -48,7 +50,7 @@ import captura4 from '../../assets/images/credits/Captura4.png';
 import captura12 from '../../assets/images/credits/Captura12.png';
 import carlosbichos from '../../assets/images/credits/CarlosBichos.png';
 import cenapremio from '../../assets/images/credits/CenaPremio.jpg';
-import JesusBro from '../../assets/images/credits/JesusBro.png';
+import JesusBro from '../../assets/images/credits/JesusBro2.png';
 import JoseDani from '../../assets/images/credits/Jose-Dani.png';
 import LaserTag from '../../assets/images/credits/LaserTag.png';
 import LilenIsi from '../../assets/images/credits/Lilen-isi.png';
@@ -65,14 +67,15 @@ import shotdaily2 from '../../assets/images/credits/Shot-daily-2.png';
 import shotdaily3 from '../../assets/images/credits/Shot-daily-3.png';
 import shotisi from '../../assets/images/credits/Shot-isi.png';
 import shotjose from '../../assets/images/credits/Shot-jose.png';
-
-
+import dailyPics2 from '../../assets/images/credits/daily-pics2.png';
+import finalGif from '../../assets/images/bgs/finalgif.webp';
 import "./credits.scss";
 
 const Credits = () => {
-  // const { setSong } = useRootContext();
+  const { setSong } = useRootContext();
   const [theEndFadeOut, setTheEndFadeOut] = useState(false);
   const [displaySGA, setDisplaySGA] = useState(false);
+  const [displayThanks, setDisplayThanks] = useState(false);
   const [BGFadeOut, setBGFadeOut] = useState(true);
   const [creditsStage, setCreditsStage] = useState(-1);
   const [activeSlide, setActiveSlide] = useState(0);
@@ -91,10 +94,11 @@ const Credits = () => {
   const stageLegend2 = 2;
   const stageCrew = 3;
   const stageSlideShow = 4;
+  const stageFinal = 5;
 
   const slides = [
     { src: coru13, time: 5000 },
-    { src: coru2, time: 2500 },
+    { src: mad4, time: 2500 },
     { src: shotdaily2, time: 2500 },
     { src: coru14, time: 2500 },
     { src: coru3, time: 2500 },
@@ -134,7 +138,7 @@ const Credits = () => {
     { src: mad1, time: 3000 },
     { src: mad2, time: 3000 },
     { src: mad17, time: 3000 },
-    { src: mad4, time: 3000 },
+    { src: coru2, time: 2500 },
     { src: carlosbichos, time: 3000 },
     { src: mad5, time: 3000 },
     { src: mad6, time: 3000 },
@@ -147,6 +151,7 @@ const Credits = () => {
     { src: captura4, time: 3000 },
     { src: mad13, time: 3000 },
     { src: shotjose, time: 2000 },
+    { src: dailyPics2, time: 3000 },
     { src: coru11, time: 3000 },
     { src: mad18, time: 3000 },
     { src: captura3, time: 3000 },
@@ -154,7 +159,7 @@ const Credits = () => {
     { src: JoseDani, time: 2000 },
     { src: Premio4, time: 5000 },
     { src: shotisi, time: 2000 },
-    { src: premio, time: 25000 },
+    { src: premio, time: 13000 },
   ]
 
   async function init() {
@@ -181,26 +186,36 @@ const Credits = () => {
     setDisplaySGA(false);
     setCreditsStage(stageCrew);
     await sleep(48000);
-    slideShowLoop();
+    setCreditsStage(stageSlideShow);
   }
 
-  async function showSlide(index = 0) {
+  async function showSlide(slideIndex = 0) {
     setSlideActive(true);
-    await sleep(slides[index].time);
+    await sleep(slides[slideIndex].time);
     setSlideActive(false);
     await sleep(500);
-    if (index < slides.length - 1) {
-      setActiveSlide(index + 1);
-      showSlide(index + 1);
+    if (slideIndex < slides.length - 1) {
+      setActiveSlide(slideIndex + 1);
+      showSlide(slideIndex + 1);
+    } else {
+      setCreditsStage(stageFinal);
     }
   }
 
-  function slideShowLoop() {
-    setCreditsStage(stageSlideShow);
-    showSlide();
+  async function oceanStage() {
+    await sleep(2000);
+    setDisplaySGA(true);
+    await sleep(1200);
+    setDisplayThanks(true);
+    await sleep(24500);
+    setSong(ocean);
   }
 
-  useEffect(() => { console.log("credits stage: ", creditsStage) }, [creditsStage]);
+  useEffect(() => {
+    if (creditsStage === stageSlideShow) { showSlide(0); }
+    if (creditsStage === stageFinal) { oceanStage(); }
+  }, [creditsStage]);
+
   useEffect(() => { init() }, []);
 
   return (
@@ -208,7 +223,7 @@ const Credits = () => {
       <main className="fei-page fei-credits">
         <h1 className={classNames("fei-credits__super-title", { "fei-credits__super-title--is-active": displaySGA })}>S G A - L I B</h1>
         <Banner fadeOut={theEndFadeOut} text="The End?" />
-        <div className={classNames("fei-credits__bg", { "fei-credits__bg--fade-out": BGFadeOut })} style={{ backgroundImage: `url(${bg})` }} />
+        <div className={classNames("fei-credits__bg", { "fei-credits__bg--fade-out": BGFadeOut || creditsStage === stageFinal })} style={{ backgroundImage: `url(${bg})` }} />
         {(creditsStage < stageSlideShow) && (<div className={classNames("fei-credits__list", { "fei-credits__list--is-active": creditsStage === stageCrew, "fei-credits__list--blackout": backgroundOverlay })}>
           {(creditsStage >= stageLegend0 && creditsStage <= stageLegend2) && <span className="fei-credits__shot">{shots[creditsStage]}</span>}
           <ul className={classNames("fei-credits__list-content", { "fei-credits__list-content--is-active": creditsStage === stageCrew })}>
@@ -248,7 +263,7 @@ const Credits = () => {
               <Thumbnail char={CHARS.somo} size="size-l" />
               <div className="fei-credits__list-item-text" style={{ color: CHARS.somo.color }}>
                 <p>Alejandro 'PopOver' Somoano</p>
-                <p>Infantería de los Tercios Viejos</p>
+                <p>Infantería de los Tercios</p>
                 {/* <p>All-end developer</p> */}
               </div>
             </li>
@@ -300,6 +315,10 @@ const Credits = () => {
             </div>
           </div>
         )}
+        <div className={classNames("fei-credits__final", { "fei-credits__final--is-active": creditsStage === stageFinal })}>
+          <h2 className={classNames("fei-credits__thanks", { "fei-credits__thanks--is-active": displayThanks })}>Gracias</h2>
+          <img className="fei-credits__final-img" src={finalGif} alt="" />
+        </div>
       </main>
     </Page >
   )

@@ -92,7 +92,7 @@ const Viernes = () => {
   ["...tengo la sensación...",
     "...de que se me olvida algo..."],
   ] : [[
-    "Y eso ha sido todo",
+    "Nos hemos ganado un descanso",
     "Ha sido una buena semana",
     `¡Bienvenida a tu nuevo hogar, ${player.name}!`
   ],
@@ -105,10 +105,22 @@ const Viernes = () => {
   const secuenceTexts2 = [
     ["jejeje", "Reverendo, nos debe usted unas palabras"],
     [
-      "blablablba 1",
-      "blablablba 2",
-      "blablablba 3",
-      "blablablba 4",
+      `Cada día me siento más unido,
+      me enseñaste que somos más que compañeros,
+      no solo el respeto fue lo prometido,
+      y sin embargo somos los primeros.`,
+      `Los primeros en ayudar,
+      los primeros en aprender,
+      los primeros en avanzar,
+      los primeros en crecer.`,
+      `No se es primero sin humildad,
+      lo importante para ti lo es para mí,
+      respeto sin importar la edad,
+      no existe el nosotros sin mí.`,
+      `Un equipo debe tener sus valores,
+      no es fácil ser roca sólida,
+      pues sí! para ti todas las flores,
+      ahora FRONTSGA es nuestra vida.`
     ],
     ["Gran discurso", "Ahora sí: ¡Buen finde, tripulación!"],
   ];
@@ -125,13 +137,13 @@ const Viernes = () => {
     },
     {
       delay: 1500,
-      duration: [2000, 2000, 2000, 2000],
+      duration: [7000, 7000, 7000, 7000],
       endDelay: 0,
       color: CHARS.jose.color,
       initCallback: () => setCharActive(CHARS.jose.id),
-      width: "470px",
-      position: player.id === CHARS.jose.id ? { top: 150, left: 200 } : { top: 180, left: 20 },
-      className: "fei-bubble--bg"
+      width: "580px",
+      position: player.id === CHARS.jose.id ? { top: 90, left: 20 } : { top: 125, left: 20 },
+      className: "fei-bubble--bg fei-bubble--speech"
     },
     {
       delay: 2000,

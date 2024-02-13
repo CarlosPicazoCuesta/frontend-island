@@ -19,6 +19,9 @@ import Viernes from "../../pages/friday/friday.tsx";
 import Release from "../../pages/release/release.tsx";
 import Map from "../../pages/map/map.tsx";
 import Fishing from "../../pages/fishing/fishing.tsx";
+import DuelMuras from "../../pages/duels/duel-muras.tsx";
+import DuelAndrea from "../../pages/duels/duel-andrea.tsx";
+import DuelOscar from "../../pages/duels/duel-oscar.tsx";
 import Barracks from "../../pages/barracks/barracks.tsx";
 
 const getRouter = (pwd) => {
@@ -104,6 +107,18 @@ const getRouter = (pwd) => {
     {
       path: "/fishing",
       element: <Fishing />,
+    },
+    {
+      path: "/duels",
+      element: <DuelMuras />,
+    },
+    {
+      path: "/duel-andrea",
+      element: <DuelAndrea />,
+    },
+    {
+      path: "/duel-oscar",
+      element: <DuelOscar />,
     },
     {
       path: "/barracks",

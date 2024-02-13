@@ -5,7 +5,8 @@ type RootContextType = {
   currentPage: string;
   activeSong: string;
   player: any;
-  setPlayer: (string) => void | null;
+  setPlayer?: (string) => void | null;
+  setSong: (string) => void;
   addMissionAccomplished: (string) => void;
   day: string;
   missionsAccomplished: string[];
@@ -15,13 +16,14 @@ export const RootContextInitial = {
   currentPage: "",
   activeSong: "",
   play: true,
+  setSong: () => {},
+  addMissionAccomplished: () => {},
   player: CHARS.aitor,
-  setPlayer: null,
   day: "day",
   missionsAccomplished: [],
 };
 
-export const RootContext = createContext({});
+export const RootContext = createContext(RootContextInitial);
 
 export const useRootContext = (): RootContextType => {
   const context = useContext(RootContext);
@@ -43,11 +45,14 @@ export const nextPage = {
   jueves: "/viernes",
   viernes: "/release",
   release: "/final",
-  map: "/fishing",
+  map: "/duels",
   fishing: "/day",
   topDeck: "/barracks",
   barracks: "/day",
   final: "/credits",
+  duels: "/duel-andrea",
+  duelAndrea: "/duel-oscar",
+  DuelOScar: "/day",
 };
 
 export const getNextPageId = (page) => {

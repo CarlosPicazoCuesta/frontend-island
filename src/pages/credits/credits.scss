@@ -152,4 +152,35 @@
       opacity: 1;
     }
   }
+  &__final {
+    position: absolute;
+    width: 800px;
+    height: 600px;
+    opacity: 0;
+    transition: opacity 0.8s ease-in;
+
+    &-img {
+      width: 800px;
+      height: 600px;
+    }
+
+    &--is-active {
+      opacity: 1;
+    }
+  }
+  &__thanks {
+    position: absolute;
+    top: 120px;
+    width: 100%;
+    text-align: center;
+    font-family: "blackpearl";
+    color: brown;
+    font-size: 57px;
+    opacity: 0;
+    transition: opacity 0.8s ease-in;
+
+    &--is-active {
+      opacity: 1;
+    }
+  }
 }

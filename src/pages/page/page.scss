@@ -105,6 +105,10 @@
     margin: 0;
     font-size: 20px;
     color: #1909ff;
+    visibility: hidden;
+    &:hover {
+      visibility: visible;
+    }
 
     &-link {
       display: block;
