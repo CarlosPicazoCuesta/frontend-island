@@ -1,9 +1,0 @@
-.fei-fade-in {
-  width: 100%;
-  opacity: 0;
-  transition: opacity 2s ease-in;
-
-  &--is-active {
-    opacity: 1;
-  }
-}
