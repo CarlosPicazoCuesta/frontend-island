@@ -118,7 +118,7 @@ const DuelOscar = () => {
   [getAnswers(1), "¡Levanta esa espada! ¿Qué es el virtual DOM?"],
   [getAnswers(2), "Ha sido un duelo divertido", getAnswers(3)]
   ] : [[
-    "Uy, ¡mira! Un pepino de mar nos aborda",
+    "Uy, ¡mira! Una anchoa nos aborda",
     "Soy el capitán Lijó, el más temido de los mares",
     "Pongamos a prueba el filo de esa espada",
     "La diferencia entre programación imperativa y declarativa es...",
@@ -150,14 +150,11 @@ const DuelOscar = () => {
     setCurrentQuestion(currentQuestion + 1);
   }
 
-  useEffect(() => {
-    setSong(duel);
-  }, []);
-
   return (
     <Page load={loadPage} fadeOut={fadeOut} className="fei-page--top" >
       <FadeIn
         callback={() => {
+          setSong(duel);
           setBubbleActive(0);
         }}
         delayStart={500}

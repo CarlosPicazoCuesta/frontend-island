@@ -7,7 +7,7 @@ const TopDeck = ({ loadMap, loadBarracks }) => {
 
   return (
     <div className="fei-top-deck">
-      {(!missionsAccomplished.includes("fishing") || !missionsAccomplished.includes("duels")) && <div className="fei-top-deck__map" onClick={loadMap} />}
+      {missionsAccomplished.includes("barracks") && (!missionsAccomplished.includes("fishing") || !missionsAccomplished.includes("duels")) && <div className="fei-top-deck__map" onClick={loadMap} />}
       {!missionsAccomplished.includes("barracks") && <div className="fei-top-deck__barracks" onClick={loadBarracks} />}
     </div>
   )

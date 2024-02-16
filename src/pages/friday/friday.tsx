@@ -84,7 +84,7 @@ const Viernes = () => {
   const secuenceTexts1 = player.gender === "male" ? [[
     "Nos hemos ganado un descanso",
     "Ha sido una buena semana",
-    `¡Bienvenido a tu nuevo hogar, ${player.name}!`
+    `¡Espero que siempre sientas esto como tu hogar, ${player.name}!`
   ],
   ["¡Bravo!"],
   ["¡Bravo!"],
@@ -94,7 +94,7 @@ const Viernes = () => {
   ] : [[
     "Nos hemos ganado un descanso",
     "Ha sido una buena semana",
-    `¡Bienvenida a tu nuevo hogar, ${player.name}!`
+    `¡Espero que siempre sientas esto como tu hogar, ${player.name}!`
   ],
   ["¡Bravo!"],
   ["¡Bravo!"],
@@ -104,7 +104,7 @@ const Viernes = () => {
 
   const secuenceTexts2 = [
     ["jejeje", "Reverendo, nos debe usted unas palabras"],
-    [
+    ["Claro. Ejem, ejem...",
       `Cada día me siento más unido,
       me enseñaste que somos más que compañeros,
       no solo el respeto fue lo prometido,
@@ -120,9 +120,9 @@ const Viernes = () => {
       `Un equipo debe tener sus valores,
       no es fácil ser roca sólida,
       pues sí! para ti todas las flores,
-      ahora FRONTSGA es nuestra vida.`
+      FRONTSGA marcó nuestra vida.`
     ],
-    ["Gran discurso", "Ahora sí: ¡Buen finde, tripulación!"],
+    ["(No mientas, lo has leído con la voz de José y el acento de Chipiona)", "Gran discurso, reverendo", "Ahora sí: ¡Buen finde, tripulación!"],
   ];
 
   const secuenceBubbles2 = [
@@ -137,7 +137,7 @@ const Viernes = () => {
     },
     {
       delay: 1500,
-      duration: [7000, 7000, 7000, 7000],
+      duration: [1500, 7000, 7000, 7000, 7000],
       endDelay: 0,
       color: CHARS.jose.color,
       initCallback: () => setCharActive(CHARS.jose.id),
@@ -147,7 +147,7 @@ const Viernes = () => {
     },
     {
       delay: 2000,
-      duration: [2500, 3000],
+      duration: [4500, 2500, 3000],
       endDelay: 2000,
       color: NPCS.capi.color,
       initCallback: () => setCharActive(""),

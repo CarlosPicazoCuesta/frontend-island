@@ -85,7 +85,7 @@ const Credits = () => {
   const shots = [
     "Design, Script and Develop by: Capi",
     "Tested by: HAHAHAAAA",
-    "In loving memory of: Z-Lux-themes",
+    "In loving memory of: Z-lUX-themes",
   ];
 
   const stageOff = -1;
@@ -229,9 +229,8 @@ const Credits = () => {
           <ul className={classNames("fei-credits__list-content", { "fei-credits__list-content--is-active": creditsStage === stageCrew })}>
             <li className="fei-credits__list-item">
               <div className="fei-credits__list-item-text" style={{ color: "#67a7e2" }}>
-                <p>Aitor López Calvarro</p>
-                {/* <p>Maestro de armas</p> */}
-                <p>Release-end developer</p>
+                <p>Aitor 'Release' López</p>
+                <p>Euskal developer</p>
               </div>
               <Thumbnail char={CHARS.aitor} size="size-l" />
             </li>
@@ -239,14 +238,12 @@ const Credits = () => {
               <Thumbnail char={CHARS.isi} size="size-l" />
               <div className="fei-credits__list-item-text" style={{ color: "#cf6eff" }}>
                 <p>Isidora Reina 'Zombi'</p>
-                {/* <p>Contramaestre</p> */}
                 <p>Resizer developer</p>
               </div>
             </li>
             <li className="fei-credits__list-item">
               <div className="fei-credits__list-item-text" style={{ color: CHARS.isaac.color }}>
                 <p>Isaac 'GifProvider' Martí</p>
-                {/* <p>Marinero</p> */}
                 <p>QAmikaze developer</p>
               </div>
               <Thumbnail char={CHARS.isaac} size="size-l" />
@@ -255,7 +252,6 @@ const Credits = () => {
               <Thumbnail char={CHARS.lilen} size="size-l" />
               <div className="fei-credits__list-item-text" style={{ color: CHARS.lilen.color }}>
                 <p>Lilen 'Holis' Campodonico</p>
-                {/* <p>Marinera</p> */}
                 <p>LindoEsCSS developer</p>
               </div>
             </li>
@@ -264,13 +260,11 @@ const Credits = () => {
               <div className="fei-credits__list-item-text" style={{ color: CHARS.somo.color }}>
                 <p>Alejandro 'PopOver' Somoano</p>
                 <p>Infantería de los Tercios</p>
-                {/* <p>All-end developer</p> */}
               </div>
             </li>
             <li className="fei-credits__list-item">
               <div className="fei-credits__list-item-text" style={{ color: CHARS.jose.color }}>
                 <p>Jose 'Reverendo' DLR Methvin</p>
-                {/* <p>Reverendo</p> */}
                 <p>Personal developer</p>
               </div>
               <Thumbnail char={CHARS.jose} size="size-l" />
@@ -279,14 +273,12 @@ const Credits = () => {
               <Thumbnail char={CHARS.dorian} size="size-l" />
               <div className="fei-credits__list-item-text" style={{ color: CHARS.dorian.color }}>
                 <p>Dorian 'Enabler' López</p>
-                <p>Mercenario</p>
-                {/* <p>Enabler developer</p> */}
+                <p>Mercenario ambulanciero</p>
               </div>
             </li>
             <li className="fei-credits__list-item">
               <div className="fei-credits__list-item-text" style={{ color: CHARS.marc.color }}>
                 <p>Marc 'Bachata' Albatros</p>
-                {/* <p>Infantería de marina</p> */}
                 <p>Coach developer</p>
               </div>
               <Thumbnail char={CHARS.marc} size="size-l" />
@@ -295,7 +287,6 @@ const Credits = () => {
               <Thumbnail char={CHARS.dani} size="size-l" />
               <div className="fei-credits__list-item-text" style={{ color: CHARS.dani.color }}>
                 <p>Daniela H. 'Gallarda' Tortolero</p>
-                {/* <p>Marinera</p> */}
                 <p>Sewing developer</p>
               </div>
             </li>
