@@ -512,7 +512,7 @@ const Fishing = ({ }) => {
   }
 
   return (
-    <Page className="fei-page--top" fadeOut={fadeOut} load={loadPage}>
+    <Page className="fei-page--top" fadeOut={fadeOut} load={loadPage} nextPageLink="/day" enableNext>
       <FadeIn
         callback={() => {
           addMissionAccomplished("fishing");
