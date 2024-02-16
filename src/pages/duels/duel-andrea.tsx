@@ -28,13 +28,13 @@ const DuelAndrea = () => {
     { id: '0-d', text: "Pétalo, Burbuja y Cáctus" }
 
   ], [
-    { id: '1-a', text: "Hay tantos diseños de una misma cosa que ya no sabes cuál es el bueno" },
+    { id: '1-a', text: "Que tienes tantos diseños de una misma cosa que ya no sabes cuál es el bueno" },
     { id: '1-b', text: "Lo más probable es que tenga un filtro puesto y una rana en la cabeza" },
     { id: '1-c', text: (player.id === CHARS.lilen.id || player.id === CHARS.isi.id || player.id === CHARS.aitor.id) ? "Nostalgias de un tiempo pasado" : "Nostalgias de un tiempo pasado que no viví" },
-    { id: '1-d', text: "Hay algo en un componente que no encaja con el diseño" }
+    { id: '1-d', text: "Que has visto algo en un componente que no encaja con el diseño" }
   ], [
     { id: '2-a', text: "Cerveza 1906, por supuesto" },
-    { id: '2-b', text: "Orujo de hierbas, ¿somos piratas o qué?" },
+    { id: '2-b', text: "Crema de orujo, ¿somos piratas o qué?" },
     { id: '2-c', text: "Albariño, que tampoco somos salvajes" },
     { id: '2-d', text: "Licor café, que calienta el cuerpo" }
   ]];
@@ -91,7 +91,7 @@ const DuelAndrea = () => {
         default: return "Meh...";
       }
       case 2: switch (answers[question]) {
-        case "2-a": return "Por supuesto";
+        case "2-a": return "Por supuesto, por supuesto";
         case "2-b": return "Somos, somos";
         case "2-c": return "Tienes buen gusto";
         case "2-d": return "Y el alma";
@@ -111,9 +111,9 @@ const DuelAndrea = () => {
   const secuenceTexts = [[
     "Estás muy lejos de tu barco, percebe",
     "Soy la capitana Andrea, y no dais un paso sin que yo lo vea",
-    "A ver: ¿quiénes son las supernenas?",
+    "Responde: ¿quiénes son las Supernenas?",
   ],
-  [getAnswers(0), "Si te digo que: 'veo cosas raras', ¿qué significa?"],
+  [getAnswers(0), "La frase: 'veo cosas raras', ¿qué significa?"],
   [getAnswers(1), "¿Cuál es el mejor caldo?"],
   [getAnswers(2), "La suerte es caprichosa, ahora largo de mi barco", getAnswers(3)]
   ]
@@ -122,6 +122,7 @@ const DuelAndrea = () => {
     setBubbleActive(-1)
     if (currentQuestion < options.length) { setShowDialog(true) }
     else {
+      setSong("");
       setFadeOut(true);
       await sleep(1500);
       setLoadPage(nextPage.duelAndrea);
@@ -133,7 +134,7 @@ const DuelAndrea = () => {
     switch (currentQuestion) {
       case 0: if (option.id !== "0-a") { setPoints(points + 1) } break;
       case 1: if (option.id === "1-c") { setPoints(points + 1) } break;
-      case 2: if (option.id === "2-c") { setPoints(points + 1) } break;
+      case 2: if (option.id === "2-b") { setPoints(points + 1) } break;
     }
     setAnswers([...answers, option.id]);
     setBubbleActive(currentQuestion + 1);

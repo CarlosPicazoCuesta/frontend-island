@@ -19,7 +19,6 @@ const Muelle = () => {
     "La suerte y todos los demás se fueron.",
     "¿Qué hago ahora?",
     "Seguro que en este antro hay una agradable tripulación a la que unirse...",
-    // "."
   ];
 
   const showCrew = () => {

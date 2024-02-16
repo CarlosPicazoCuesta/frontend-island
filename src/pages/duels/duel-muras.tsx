@@ -36,7 +36,7 @@ const DuelMuras = () => {
     { id: '2-a', text: "Alberto" },
     { id: '2-b', text: "A. Muras" },
     { id: '2-c', text: "A. M. Geada" },
-    { id: '2-d', text: "El infame trepa y traidor de Picazo que se hace llamar Capi porque no llega ni a CAPITÁN" }
+    { id: '2-d', text: "Lo lamento, pero yo soy leal a Capi" }
   ]];
 
   const secuenceBubbles = [
@@ -66,7 +66,7 @@ const DuelMuras = () => {
     },
     {
       delay: 500,
-      duration: [2500, 2300, 3500],
+      duration: [5000, 2300, 4500],
       endDelay: 500,
       color: NPCS.muras.color,
       width: "410px",
@@ -89,10 +89,10 @@ const DuelMuras = () => {
         case "1-d": return "Hoy duermes con los tiburones, grumete";
       } break;
       case 2: switch (answers[question]) {
-        case "2-a": return "Veo que sabes de capitanes";
-        case "2-b": return "Veo que sabes de capitanes";
-        case "2-c": return "Veo que sabes de capitanes";
-        case "2-d": return "Pobre alma, no sabes nada del mar";
+        case "2-a": return "Veo que sabes de capitanes, una pena que no tengas uno de verdad";
+        case "2-b": return "Veo que sabes de capitanes, una pena que no tengas uno de verdad";
+        case "2-c": return "Veo que sabes de capitanes, una pena que no tengas uno de verdad";
+        case "2-d": return "¿El infame trepa y traidor de Picazo que se hace llamar Capi porque no llega ni a CAPITÁN?";
       } break;
       case 3: switch (points) {
         case 0: return "Espero que hayas aprendido algo, porque vaya tela...";
@@ -117,7 +117,7 @@ const DuelMuras = () => {
     "Vaya, vaya, vaya...",
     `¡¡${player.name?.toUpperCase()}!! ¡Volvemos a encontrarnos!`,
     "Vamos allá:",
-    "Los pimientos de Padrón...",
+    "Los pimientos de Padrón... ¿Pican?",
   ],
   [getAnswers(0), "El Club Deportivo Lugo juega en..."],
   [getAnswers(1), "El mejor capitán de las aguas del front es..."],
